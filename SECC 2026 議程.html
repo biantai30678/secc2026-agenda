@@ -1,0 +1,514 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="SECC 2026 議程">
+<meta name="theme-color" content="#0f4c5c">
+<title>SECC 2026 議程</title>
+<style>
+:root{
+  --bg:#f3f6f7;--card:#fff;--ink:#1b2a30;--sub:#5b6d75;--line:#dbe4e8;--brand:#0f4c5c;--brand2:#1f7a8c;
+  --chip:#e6eef1;--chipon:#0f4c5c;--chipoff:#1b2a30;--live:#d9480f;--star:#e0a100;
+  --main:#0f4c5c;--tw:#2b6cb0;--apem:#2f855a;--co:#805ad5;--lunch:#b7791f;--ws:#c05621;--paper:#b83280;--other:#718096;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#10181c;--card:#18242a;--ink:#e8f0f3;--sub:#9fb2ba;--line:#2a3a42;--brand:#4fb3c8;--brand2:#6cc4d6;
+  --chip:#22333b;--chipon:#4fb3c8;--chipoff:#0d1519;--live:#ff8a4c;--star:#f6c445;}
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+  padding-bottom:env(safe-area-inset-bottom)}
+header{background:linear-gradient(135deg,#0f4c5c,#1f7a8c);color:#fff;padding:calc(14px + env(safe-area-inset-top)) 16px 14px}
+header h1{margin:0;font-size:19px;line-height:1.3}
+header p{margin:4px 0 0;font-size:13px;opacity:.9}
+.bar{position:sticky;top:0;z-index:20;background:var(--bg);padding:8px 12px 8px;border-bottom:1px solid var(--line)}
+.days{display:flex;gap:8px;margin-bottom:8px}
+.filters{padding:10px 12px 0}
+.days button{flex:1;padding:6px 6px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:15px;font-weight:600}
+.days button.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.days small{display:block;font-weight:400;font-size:12px;opacity:.85}
+.search{display:flex;gap:8px}
+.search input,.search select{font-size:16px;padding:9px 10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);min-width:0}
+.search input{flex:1}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;padding:6px 11px;border-radius:999px;border:0;background:var(--chip);color:var(--ink);font-size:14px}
+.chip.on{background:var(--chipon);color:var(--chipoff);font-weight:600}
+.tools{display:flex;gap:8px;align-items:center;margin-top:8px;font-size:13px;color:var(--sub)}
+.tools .grow{flex:1}
+.tools button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 10px;border-radius:8px;font-size:13px}
+.banner{margin:10px 12px 0;padding:10px 12px;border-radius:10px;background:var(--card);border:1px solid var(--line);font-size:14px}
+.banner b{color:var(--live)}
+main{padding:4px 12px 40px}
+.slot{margin:16px 0 6px;font-size:15px;font-weight:700;color:var(--brand);display:flex;align-items:center;gap:8px}
+.slot::after{content:"";flex:1;height:1px;background:var(--line)}
+.card{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--other);border-radius:12px;padding:10px 12px;margin:0 0 8px}
+.card.t-main{border-left-color:var(--main)}.card.t-tw{border-left-color:var(--tw)}.card.t-apem{border-left-color:var(--apem)}
+.card.t-co{border-left-color:var(--co)}.card.t-lunch{border-left-color:var(--lunch)}.card.t-ws{border-left-color:var(--ws)}
+.card.t-paper{border-left-color:var(--paper)}.card.live{box-shadow:0 0 0 2px var(--live)}
+.top{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--sub);flex-wrap:wrap}
+.time{font-variant-numeric:tabular-nums;font-weight:600;color:var(--ink)}
+.room{background:var(--chip);border-radius:6px;padding:1px 7px;color:var(--ink)}
+.livetag{background:var(--live);color:#fff;border-radius:6px;padding:1px 7px;font-weight:600}
+.star{margin-left:auto;border:0;background:none;font-size:22px;line-height:1;color:var(--sub);padding:2px 4px}
+.star.on{color:var(--star)}
+.card h3{margin:4px 0 2px;font-size:16px;line-height:1.4}
+.tag{font-size:12px;color:var(--sub)}
+.chair{font-size:13px;color:var(--sub);margin-top:3px}
+details{margin-top:6px}
+summary{cursor:pointer;color:var(--brand);font-size:14px;font-weight:600;padding:4px 0;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"▸ "}
+details[open] summary::before{content:"▾ "}
+ul.items{list-style:none;margin:4px 0 0;padding:0}
+ul.items li{padding:8px 0;border-top:1px dashed var(--line)}
+ul.items .it{font-size:12px;color:var(--sub);font-variant-numeric:tabular-nums}
+ul.items .tp{font-size:15px;line-height:1.4}
+ul.items .sp{font-size:14px;color:var(--brand);margin-top:1px}
+ul.items .nt{font-size:12px;color:var(--sub)}
+.empty{text-align:center;color:var(--sub);padding:40px 10px}
+footer{padding:10px 16px 40px;font-size:13px;color:var(--sub)}
+footer h2{font-size:15px;color:var(--ink);margin:14px 0 6px}
+footer a{color:var(--brand)}
+footer li{margin:4px 0}
+</style>
+</head>
+<body>
+<header>
+  <h1>SECC Congress 2026 Taipei<br>暨 2026 急重症聯合學術年會</h1>
+  <p>＆ 第十屆亞太早期重症復健國際會議（APEM 2026）</p>
+  <p>2026/10/3（六）–10/4（日）｜臺大醫院國際會議中心</p>
+</header>
+
+<div class="bar">
+  <div class="days" id="days"></div>
+  <div class="search">
+    <input id="q" type="search" placeholder="搜尋講者、講題、關鍵字" autocomplete="off" enterkeyhint="search">
+    <select id="room" aria-label="會議室"></select>
+  </div>
+</div>
+<div class="filters">
+  <div class="chips" id="chips"></div>
+  <div class="tools">
+    <span class="grow" id="count"></span>
+    <button id="toggleAll">全部展開</button>
+    <button id="goNow">跳到現在</button>
+  </div>
+</div>
+<div id="banner" class="banner" hidden></div>
+<main id="list"></main>
+
+<footer>
+  <h2>說明</h2>
+  <ul>
+    <li>資料擷取日：2026/10/2，來自主辦單位官網公告之「暫定總表」，現場議程、場地與講者以大會公告為準。</li>
+    <li>APEM（亞太早期重症復健）的逐場講題在官網為嵌入式表格，本頁僅收錄已確認的場次；完整內容請至 APEM 官網「Daily Program」或下載 Full Program。</li>
+    <li>10/4 午餐研討會（默沙東、日龍、鏵甡、美時）依總表欄位順序標示於 4 樓，確切會議室請以現場公告為準。</li>
+    <li>10/4 復健工作坊：中文場 08:00–12:00 於台大醫學院 5 樓；英文場 13:30–16:40 於台大國際會議中心 4 樓。</li>
+    <li>點選卡片右上角的星號可加入「我的行程」，會儲存在這支手機的瀏覽器中。</li>
+  </ul>
+  <h2>官方來源</h2>
+  <ul>
+    <li><a href="https://www.tweccm.org.tw/mt/index.asp">急重症聯合年會・議程總覽</a></li>
+    <li><a href="https://www.tweccm.org.tw/mt/time_list.asp">急重症聯合年會・議程時間表</a></li>
+    <li><a href="https://www.i-secc.org/program/program.asp">SECC Congress・Daily Program</a></li>
+    <li><a href="https://10th-apem2026.seccm.org.tw/program/daily-program">APEM 2026・Daily Program</a></li>
+  </ul>
+</footer>
+
+<script>
+"use strict";
+/* ---------- 資料 ---------- */
+var TYPES=[
+  ["all","全部"],["main","SECC 國際"],["tw","急重症年會"],["apem","APEM 復健"],
+  ["co","協辦學會"],["lunch","廠商研討會"],["ws","工作坊"],["paper","論文／競賽"],["other","其他"],["mine","★ 我的行程"]
+];
+var TYPENAME={main:"SECC 國際主會場",tw:"急重症年會",apem:"APEM 早期重症復健",co:"協辦學會",lunch:"廠商研討會（午餐／早餐）",ws:"工作坊",paper:"論文／競賽／快閃",other:"大會活動"};
+var DATES={1:"2026-10-03",2:"2026-10-04"};
+var DATA=[];
+function S(d,s,e,r,t,n,ch,items){DATA.push({d:d,s:s,e:e,r:r,t:t,n:n,ch:ch||"",items:items||[]});}
+
+/* ===== Day 1：10/3（六） ===== */
+S(1,"09:00","09:40","101","main","SECC Opening 開幕式","Moderators：Prof. Jan De Waele、Prof. Wei-Tien Chang 張維典");
+S(1,"09:50","10:30","101","main","Session 1-1 Keynote Lecture","Moderators：Prof. Wei-Tien Chang 張維典、Prof. Jan De Waele",[
+ ["09:50–10:10","The Future of Critical Care Medicine. Humanization vs. technology","Javier Perez Fernandez（USA）"],
+ ["10:10–10:30","From Algorithms to Outcomes: AI in Modern Healthcare（線上）","John Halamka（USA）"]]);
+S(1,"11:00","12:10","101","main","Session 1-2 Critical Care Update: Innovations, Challenges, and Advanced Support","Moderators：Prof. Chih-Hsin Hsu 許志新、Prof. Janice Zimmerman",[
+ ["11:00–11:23","Predicting AKI Progression After Cardiac Surgery: Can We Identify High-Risk Patients?","Moritoki Egi（Japan）"],
+ ["11:23–11:46","Addressing the Challenges of Critical Care Workforce Shortages","Cherylee W.J. Chang（USA）"],
+ ["11:46–12:09","Overview of mechanical circulatory support","Chia Yew Woon 謝耀運（Singapore）"]]);
+S(1,"12:20","13:20","101","lunch","Lunch Symposium 必帝（BD）（線上）","Moderators：Dr. Michael Etter（Germany）、黃建華 Chien-Hua Huang",[
+ ["12:20–13:00","New Frontiers in Post-arrest Targeted Temperature Management","Benjamin S. Abella（USA）"],
+ ["13:00–13:20","Q & A",""]]);
+S(1,"13:30","14:50","101","main","Session 2-1 Optimizing Critical Care: Evidence-Based Decision Making and Supportive Therapies","Moderators：Prof. Javier Perez Fernandez、Prof. Shih-Chi Ku 古世基",[
+ ["13:30–13:50","Antimicrobial Stewardship in the ICU (Balancing Adequate Treatment and Resistance Prevention)","Jan De Waele（Belgium）"],
+ ["13:50–14:10","Blood Transfusion Guidelines: Are We Getting It Right?","Janice Zimmerman（USA）"],
+ ["14:10–14:30","Navigating the storm: How CO monitoring redefined hemodynamic management? – each type of CO and how to select the patient for fit CO measures","Wasineenart Mongkolpun (Bee)（Thailand）"],
+ ["14:30–14:50","Oxygen therapy in critical care","Sungwon Na 羅盛元（Korea）"]]);
+S(1,"15:20","16:40","101","main","Session 2-2 Optimizing Recovery in Critical Care: Early Rehabilitation and Beyond","Moderators：Prof. Chia Yew Woon、Prof. Dorji Harnod 哈多吉",[
+ ["15:20–15:40","Quality Improvement for ICU Early Rehab: Improving the Gap between Research & Practice","Dale Needham（USA）"],
+ ["15:40–16:00","Setting up the ICU Early Rehabilitation in Practice: Experience from Samsung Medical Center","Chi Ryang Chung（Korea）"],
+ ["16:00–16:20","Beyond Survival: Redefining Recovery After Cardiac Arrest","Shir Lynn Lim（Singapore）"],
+ ["16:20–16:40","Electrical Stimulation for Inflammation-Induced Muscle Atrophy: Does Timing Matter?","Moritoki Egi（Japan）"]]);
+S(1,"16:40","17:10","101","other","慶祝活動");
+
+S(1,"09:50","10:30","301","tw","Cardiogenic Shock：Advanced Strategies in Cardiogenic Shock – From ACLS 2025 to Hemodynamic Stabilization","座長：張博淵教授、辛和宗主任",[
+ ["09:50–10:10","Multidisciplinary team approach in cardiogenic shock","柯宗佑"],
+ ["10:10–10:30","Early management of cardiogenic shock with AI-enhanced early detection 心因性休克之早期處置：結合人工智慧之早期偵測","邱子彧"]]);
+S(1,"11:00","12:10","301","tw","Neurosurgical critical care：Current Evidence and Emerging Strategies","座長：郭律廷醫師、郭曄嶸醫師",[
+ ["11:00–11:20","TTM in ICU patients with aneurysmal subarachnoid hemorrhage","陳以幸"],
+ ["11:20–11:40","Endovascular Therapy in Neurosurgical Critical Care: An Update","彭邦碩"],
+ ["11:40–12:00","Healthcare-Associated Ventriculitis and Meningitis in Critical Care: An Evidence-Based Update","黃彥達"],
+ ["12:00–12:10","討論",""]]);
+S(1,"12:20","13:20","301","lunch","Lunch Symposium 塩野義：Bridging Evidence and Practice – Cefiderocol Use in Severe CR-GNB Infections","座長：馮嘉毅主任",[
+ ["12:20–13:20","Bridging Evidence and Practice: Cefiderocol Use in Severe CR-GNB Infections","王薏婷"]]);
+S(1,"13:30","14:50","301","tw","Critical care in anesthesiology：Airway management in critical illness patients","座長：呂忠和主任、丁乾坤主任",[
+ ["13:30–13:55","2025 DAS 困難呼吸道指引教學與臨床精進","詹瑋泓"],
+ ["13:55–14:20","Physiologically difficult airway","黃貽暄醫師"],
+ ["14:20–14:45","GLP-1 RA 時代：氣道處置的新挑戰","郭怡敏醫師"],
+ ["14:45–14:50","討論",""]]);
+S(1,"14:50","15:20","301","other","急加會員大會 & Break");
+S(1,"15:20","16:40","301","tw","Toxicology and renal critical care","座長：胡松原主任、郭立國主任",[
+ ["15:20–15:45","新興毒品對急重症醫師的挑戰","翁德怡"],
+ ["15:45–16:10","Blood Purification in Critical Care: Indications and Timing for Toxicology Dialysis","黃俊德"],
+ ["16:10–16:35","敗血症血液淨化治療－從 2026 年敗血症治療指引談起","施宏謀"],
+ ["16:35–16:40","討論",""]]);
+
+S(1,"09:50","12:10","102","paper","急重症口頭論文（Oral）");
+S(1,"13:30","14:50","102","paper","SECC Oral Presentation（ENG）");
+S(1,"15:20","16:40","102","paper","SECC YIA Presentation（ENG）");
+S(1,"10:30","11:00","201","paper","SECC E-poster & Break（2 樓 201 廳）");
+S(1,"14:50","15:20","201","paper","快閃擂台（巴德／愛德華）：Q1 白教授叫我來備援（血液動力學）","評審：王安怡｜主持人：王思翰（2 樓 201 廳）");
+
+S(1,"09:10","12:00","202","co","外傷醫學會 115 年秋季學術研討會（上午）：智慧醫療於外傷重症領域之應用與實踐","",[
+ ["09:10–09:20","理事長致詞","謝奇勳"],
+ ["09:20–09:30","學術委員會主任委員致詞","傅志遠"],
+ ["09:30–10:20","Pitfalls and Evolving Practices in Surgical and Trauma ICU Care","Weidun Alan Guo, MD, PhD, FACS","座長：謝奇勳理事長、廖健宏醫師"],
+ ["10:20–10:30","綜合討論",""],
+ ["10:30–11:00","Break",""],
+ ["11:00–11:50","運用 AI 的急重症資訊環境新思維","劉德明","座長：王思翰醫師、許聖德副院長"],
+ ["11:50–12:00","綜合討論",""]]);
+S(1,"12:20","13:20","202","lunch","Lunch Symposium 臺灣阿斯特捷利康：Atypical Hemolytic Uremic Syndrome in the ICU Setting","座長：黃道民",[
+ ["12:20–13:20","Atypical Hemolytic Uremic Syndrome in the ICU Setting","塗昆樺"]]);
+S(1,"13:30","16:40","202","co","外傷醫學會 115 年秋季學術研討會（下午）","",[
+ ["13:30–14:00","台灣外傷資料庫的潛力與展望","陳思安","他山之石，鏡鑑之旅｜座長：王毓駿主任、陳昭文主任"],
+ ["14:00–14:30","從病人照護到研究問題：南加州外傷研究的學習與觀察","賴思岑"],
+ ["14:30–14:50","綜合討論",""],
+ ["14:50–15:20","Break",""],
+ ["15:20–15:40","Knowledge to Capital，急重症知識如何成為資本","廖健宏","臨床經驗到產學新創開發之路｜座長：王健興主任、王鑑瀛主任"],
+ ["15:40–16:00","運用資訊系統輔助到院前救護紀錄之完整性與即時性","林士傑"],
+ ["16:00–16:20","人工智慧腹部實質器官外傷輔助診斷系統的開發與應用","鄭啟桐"],
+ ["16:20–16:40","綜合討論",""]]);
+
+S(1,"09:50","12:10","203","co","韌性計畫：【災難心理照護實務：緩和醫療、創傷預防與心理介入】研討會","",[
+ ["09:50–09:55","長官致詞","劉越萍司長（衛生福利部醫事司）"],
+ ["09:55–10:35","疫情下的安寧緩和醫療","程劭儀理事長","座長：許志新理事長"],
+ ["10:35–10:50","Coffee Break",""],
+ ["10:50–11:30","災難醫療中的心理防護網：醫療團隊之創傷預防與治療相關建議","林喬祥主任","座長：胡漢忠主任"],
+ ["11:30–12:10","災難場域的心理創傷管理","龔怡文副教授","座長：張厚台主任"]]);
+S(1,"12:20","13:20","203","lunch","Lunch Symposium 邦譽：藥物級維生素 D3 的臨床使用","",[
+ ["12:20–13:20","藥物級維生素D3的臨床使用","哈多吉"]]);
+S(1,"13:30","14:50","203","co","台灣復甦照護學會：Precision in Resuscitation – From IHCA to Advanced Neuro-monitoring","",[
+ ["13:30","Opening","黃建華","官網標示 13:00–13:32"],
+ ["13:32–13:57","Reclassifying Outcomes: The Application of NPi in Post-Arrest Care","黃嗣翔","座長：黃建華"],
+ ["13:57–14:22","Hyperkalemia Management in Cardiac Arrest","姚瀚林","座長：張維典"],
+ ["14:22–14:47","Decoding the Brain: The Role of EEG in Post-Arrest Prognostication","李欣諭","座長：蔡旼珊"],
+ ["14:47–14:50","Closing","黃建華"]]);
+S(1,"15:20","16:40","203","co","台灣呼吸治療學會：AI 與沉浸式科技驅動醫療教育與臨床照護創新","座長：卓秀英、許端容",[
+ ["15:20–15:55","AI 驅動呼吸照護的教育創新與臨床運用","楊式興"],
+ ["15:55–16:30","迷圖不迷途：AI 世代下的 MRI 送檢沉浸體驗學習－虛擬中熟悉路徑，臨床中守護安全","周蘭娣"]]);
+
+S(1,"09:50","12:10","205","ws","CRRT Workshop（萬益特）：精準 CRRT 實戰策略－處方、酸鹼、容量一次掌握","座長：張智翔",[
+ ["09:55–10:45","(1) CRRT 開局決策：處方設定、血液淨化目標與機器警訊處理","陳佑瑋"],
+ ["10:45–10:55","Break",""],
+ ["10:55–11:35","(2) 酸中毒急救關鍵：CRRT 如何重建重症病人的酸鹼平衡","王柏棠"],
+ ["11:35–12:05","(3) 不只是脫水：CRRT 如何打造重症病人的精準容量控制","劉浩熏"],
+ ["12:05–12:10","Closing",""]]);
+S(1,"12:20","13:20","205","lunch","Lunch Symposium 瑪里士：MIT Experience – IV Selenium for Critical-ill Patients in 3 MCs","座長：許聖德、陳欽明",[
+ ["12:20–12:35","MIT Experience – IV Selenium in CMMC（奇美醫院）","陳欽明"],
+ ["12:35–12:50","MIT Experience – IV Selenium in TSGH（三軍總醫院）","許聖德"],
+ ["12:50–13:05","MIT Experience – IV Selenium in CGMH（長庚醫院）","吳逾冬"],
+ ["13:05–13:20","討論",""]]);
+S(1,"13:30","16:40","205","ws","PICC Workshop（巴德）：Real-Time PICC Navigation for Bedside Placement in Critically Ill Patients","座長：張維安",[
+ ["13:30–14:10","Patient Selection for Bedside PICC Placement: Creating Capacity and Value Through Smarter Resource Allocation","詹津祐"],
+ ["14:10–14:50","Real-Time PICC Navigation in Critically Ill Patients: Clinical Experience and Tips for Successful Bedside Placement","王媜鈺"],
+ ["14:50–15:20","Break",""],
+ ["15:20–16:40","Hands-on Workshop","王媜鈺、郭芳成、詹津祐、鄭至宏"]]);
+
+S(1,"09:45","10:15","401","apem","APEM Keynote 1（Lecture A：ICU Rehabilitation for ICU physicians）","Chair：Dale Needham、Willy Chou",[
+ ["09:45–10:15","Keynote 1: Why Early Mobilization is Important in Critically Ill Patients","Dale Needham（USA）"]]);
+S(1,"09:45","10:15","402","apem","APEM Keynote 2（Lecture B：Smart ICU Rehabilitation for therapists）","Chair：Chi Ryang Chung、Yin Yi Han",[
+ ["09:45–10:15","Keynote 2: Smart Rehabilitation Systems in the ICU and Post Acute Care Patients","Chi Ryang Chung（Korea）"]]);
+S(1,"11:00","12:10","4F","apem","APEM 演講場次（Lecture A 401／Lecture B 402）","逐場講題請見 APEM 官網 Daily Program（官網 10:15 起另有演講）");
+S(1,"12:20","13:20","401","lunch","Lunch Symposium 百靈佳","座長：陽光耀",[
+ ["12:20–12:45","Balancing Efficacy and Safety: A Holistic Approach to Adjusting Inhaled Corticosteroid Intensity in COPD","沈易綸"],
+ ["12:45–13:10","Acute Exacerbation in IPF","陳威志"],
+ ["13:10–13:20","Panel discussion",""]]);
+S(1,"12:20","13:20","402","lunch","Lunch Symposium 輝瑞：Define the enemy – FUNGAL in ICU","座長：劉偉倫",[
+ ["12:20–12:25","Opening","劉偉倫"],
+ ["12:25–13:05","Critical Care IPA: Bridging the Gap Between Suspicion, Diagnostics, and Treatment Strategy",""],
+ ["13:05–13:20","Q & A / Closing",""]]);
+S(1,"13:30","14:50","4F","apem","APEM 演講場次（401／402）","逐場講題請見 APEM 官網 Daily Program");
+S(1,"15:20","16:40","4F","apem","APEM 演講場次（401／402）","逐場講題請見 APEM 官網 Daily Program");
+S(1,"16:40","17:10","4F","apem","APEM E-poster Presentation／Oral・YIA Presentation（401／402）","詳見 APEM 官網「Abstract Presentation Schedule」");
+
+/* ===== Day 2：10/4（日） ===== */
+S(2,"08:00","08:50","4F","lunch","Breakfast Symposium 傳永（ENG）","另：08:00–12:00 復健工作坊（中文）於台大醫學院 5 樓");
+
+S(2,"09:00","10:20","101","main","Session 3-1 The Future of Critical Care: Global Perspectives, Innovation, and Collaboration","Moderators：Prof. Cherylee W.J. Chang、Prof. Kar-Lok Wong 黃家樂",[
+ ["09:00–09:20","The State of Critical Care Medicine in the World. A vision from the WFICC","Javier Perez Fernandez（USA）"],
+ ["09:20–09:40","Mitochondrial transplantation","Lance Becker（USA）"],
+ ["09:40–10:00","Challenges and Priorities of Critical Care in Asia Pacific – Report from the APAC Summit","David Ku（Australia）"],
+ ["10:00–10:20","Post-Resuscitation Care and Targeted Temperature Management: Challenges from Japan","黑田泰弘 Yasuhiro Kuroda（Japan）"]]);
+S(2,"10:50","12:10","101","main","Session 3-2 Precision Neurocritical Care: Monitoring, Prognostication, and Innovation","Moderators：Prof. Min-Shan Tsai 蔡旼珊、Prof. Yasuhiro Kuroda",[
+ ["10:50–11:10","Neurophotonics: Bio-optical Monitoring and Therapeutic Modalities in Brain Injury","Eamon Raith（Australia）"],
+ ["11:10–11:30","Precision Neuroprognostication After Cardiac Arrest: From Omics to Outcomes","Shir Lynn Lim（Singapore）"],
+ ["11:30–11:50","Predicting the Future: Neuroprognostication in Acute Brain Injury","Cherylee W.J. Chang（USA）"],
+ ["11:50–12:10","Neurological monitoring in post-cardiac arrest care","Chia Yew Woon 謝耀運（Singapore）"]]);
+S(2,"12:20","13:20","101","lunch","Lunch Symposium 臺灣阿斯特捷利康：Advancing Hyperkalemia Management in Critical Care with Novel Strategies","",[
+ ["12:20–13:00","Advancing Hyperkalemia Management in Critical Care with Novel Strategies","吳允升 Vincent Wu"],
+ ["13:00–13:20","Discussion",""]]);
+S(2,"13:30","14:50","101","main","Session 4-1 Shaping the Future of Critical Care: Technology, Education, and Global Health","Moderators：Prof. Yu-Chang Yeh 葉育彰、Prof. Jae Hwa Cho",[
+ ["13:30–13:50","Artificial Intelligence at the Bedside: Risks and Concerns","Janice Zimmerman（USA）"],
+ ["13:50–14:10","Intensive Care Specialist Training in Australia","David Ku（Australia）"],
+ ["14:10–14:30","From Pandemic Response to Health Security: Building Resilient Critical Care Systems for Future Crises","Eamon Raith（Australia）"]]);
+S(2,"15:20","16:40","101","main","Session 4-2 Optimizing the ICU Journey: Treatment, Recovery, and Resilience","Moderators：Prof. Kuang-Yao Yang 陽光耀、Prof. David Ku",[
+ ["15:20–15:40","Post ICU syndrome: Saving lives but losing the person","Wasineenart Mongkolpun (Bee)（Thailand）"],
+ ["15:40–16:00","Optimizing Antibiotic Therapy in Critically Ill Patients (From PK/PD Principles to Precision Dosing)","Jan De Waele（Belgium）"],
+ ["16:00–16:20","Nonpharmacologic approaches in the ICU","Sungwon Na 羅盛元（Korea）"],
+ ["16:20–16:40","ICU Preparedness","Jae Hwa Cho（Korea）"]]);
+S(2,"16:40","17:10","101","main","SECC Closing：年會論文獎、年度雜誌優秀論文獎表揚公佈、慶祝活動");
+
+S(2,"09:00","10:20","301","tw","Critical care in chest medicine：Frontiers in Pulmonary and Critical Care – Oxygenation, Sepsis, and Inflammation in 2026","座長：詹明澄教授、王振宇主任",[
+ ["09:00–09:25","Beyond Hypoxemia: Defining Optimal Oxygenation Targets in Critical Care","曾健華"],
+ ["09:25–09:50","Sepsis 2026: Practice-Changing Updates from the Surviving Sepsis Campaign Guidelines","趙文震"],
+ ["09:50–10:15","Anti-inflammatory Therapy in ARDS: From Corticosteroids to Precision Immunomodulation","阮聖元"],
+ ["10:15–10:20","討論",""]]);
+S(2,"10:50","12:10","301","tw","Strategy and policy：What Should Taiwan’s Critical Care Policy Look Like in 2030?","座長：莊佳璋教授、許超群教授",[
+ ["10:50–11:15","急診醫學健保給付政策","顏家瑞"],
+ ["11:15–11:40","加護病房之生命末期決策：從政策與倫理到臨床實踐 End-of-Life Decision Making in ICU: Policy, Ethics, and Practice","張厚台"],
+ ["11:40–12:05","智慧重症醫療：銜接預測、臨床決策與政策制定 AI-driven Critical Care: Bridging Prediction, Decision-making, and Policy","蔡明儒"],
+ ["12:05–12:10","討論",""]]);
+S(2,"12:20","13:20","301","lunch","Lunch Symposium 萬益特（Vantive）");
+S(2,"13:30","14:50","301","tw","Critical care in cardiac surgery","座長：阮俊能副院長、王植賢副院長、陳益祥教授",[
+ ["13:30–13:50","ECMO for post-cardiotomy shock","郭嵐彬"],
+ ["13:50–14:10","LAVA ECMO for cardiogenic shock","邱子彧"],
+ ["14:10–14:30","ECpella for cardiogenic shock","張睿智"],
+ ["14:30–14:50","討論",""]]);
+S(2,"14:50","15:20","301","other","重症會員大會 & Break");
+S(2,"15:20","16:40","301","tw","Critical care and early rehabilitation","座長：周正亮顧問、陳欽明主任、古世基主任",[
+ ["15:20–15:45","胸腔重症復健常用技巧","程遠揚"],
+ ["15:45–16:10","加護病房心臟復健常用技巧與臨床指引","蔣尚霖"],
+ ["16:10–16:35","橫膈超音波在重症復健的應用","林克隆"],
+ ["16:35–16:40","討論",""]]);
+
+S(2,"09:00","10:20","102","paper","競賽－醫品");
+S(2,"10:50","12:10","102","paper","競賽－醫品");
+S(2,"12:20","13:20","102","apem","復健會議");
+S(2,"13:30","14:50","102","paper","競賽－RCA");
+S(2,"15:20","16:40","102","paper","競賽－RCA");
+S(2,"10:20","10:50","201","paper","快閃擂台（輝瑞）& Break（2 樓 201 廳）");
+S(2,"14:50","15:20","201","paper","快閃擂台（泰利福）& Break（2 樓 201 廳）");
+
+S(2,"09:00","10:20","202","tw","第一屆 高國晋教授紀念講座（高理事長紀念演講）");
+S(2,"10:50","12:10","202","other","大師課程（英禾美）");
+S(2,"12:20","13:20","202","lunch","Lunch Symposium 東洋：The Emerging Role of Polymyxins in the Era of Multidrug-Resistant Organisms","座長：陽光耀主任",[
+ ["12:25–13:05","The Emerging Role of Polymyxins in the Era of Multidrug-Resistant Organisms","賴志政"],
+ ["13:05–13:15","Discussion",""]]);
+S(2,"13:30","14:50","202","co","台灣神經重症醫學會：智慧急重症照護","",[
+ ["13:30–13:55","運用智慧醫療提升腦中風區域醫療整合","宋碧姍","座長：李俊泰主任"],
+ ["13:55–14:20","智慧醫療輔助神經重症單位病人的監測","郭曄嶸","座長：鄭建興主任"],
+ ["14:20–14:45","人工智慧在神經重症的現況及未來發展","楊梵孛","座長：彭家勛院長"],
+ ["14:45–14:50","討論",""]]);
+S(2,"15:20","16:40","202","tw","年輕醫師的韌性與未來","座長：王思翰醫師、黃道民醫師",[
+ ["15:20–15:25","開場","黃道民醫師、王思翰醫師"],
+ ["15:25–15:45","內科住院醫師重症的煉成","吳懷珏"],
+ ["15:45–16:05","AI 增能實務：省下你的時間與精力","劉政亨"],
+ ["16:05–16:25","外科醫師的「平行宇宙」與「斜槓生存美學」","王思翰"],
+ ["16:25–16:40","分享討論",""]]);
+
+S(2,"09:00","10:20","203","tw","Surgical critical care","座長：王鑑瀛主任、黃彥達副教授",[
+ ["09:00–09:25","2026 外傷重症照護的 10 個關鍵趨勢：從救命到救回人生","蔡佩君"],
+ ["09:25–09:50","外傷處置倒數計時：與時間談判或與時間賽跑？","傅志遠"],
+ ["09:50–10:15","外科重症感染之最新處置策略與臨床實務更新","翁子評"],
+ ["10:15–10:20","討論",""]]);
+S(2,"10:50","12:10","203","tw","Nutrition care","座長：韓吟宜主任、張家昇主任、施耀明主任",[
+ ["10:50–11:15","重症腸腦軸：腸道失衡與腦功能障礙的交互作用","龔瑞琛"],
+ ["11:15–11:40","重症腸肺軸：腸道失衡與肺部疾病的交互影響","顏至慶"],
+ ["11:40–12:05","重症腸腎軸：腸道訊號在急性腎損傷中的角色","黃道民"],
+ ["12:05–12:10","討論",""]]);
+S(2,"12:20","13:20","203","lunch","Lunch Symposium 費森尤斯醫藥：Management of Regional Citrate Anticoagulation (RCA) in CVVHD with HCO Filter","座長：何冠進主任",[
+ ["12:20–13:20","Management of Regional Citrate Anticoagulation (RCA) in CVVHD with HCO Filter","蘇理盈"]]);
+S(2,"13:30","15:00","203","tw","Advanced Pediatric Emergency & Critical Care：Update in Pediatric sepsis and advanced life support","座長：呂立主任、彭純芝主任、王德明主任",[
+ ["13:30–13:35","Opening","穆淑琪"],
+ ["13:35–14:05","Global Updates in Pediatric Sepsis: From Pathophysiology to Precision Resuscitation","王景甲"],
+ ["14:05–14:30","Advanced PALS: Pediatric Life Support (PALS) Mastery: Managing Refractory Arrest and Post-Cardiac Arrest Care","張振宗"],
+ ["14:30–14:50","Advanced NRP: Neonatal Resuscitation Program (NRP) Excellence: The Golden Hour Management of the Extreme Preterm Infant","周佳穗"],
+ ["14:50–15:00","Panel Discussion","張嘉侃"]]);
+S(2,"15:20","16:40","203","co","台灣兒童胸腔暨重症醫學會：Critical Role of Ultrasonography in pediatric critical and emergency care","座長：宋文舉副院長",[
+ ["15:20–15:25","Opening","宋文舉"],
+ ["15:25–15:50","Cardiovascular ultrasonography in pediatric critical and emergency care","吳恩婷","座長：陳中明主任"],
+ ["15:50–16:15","Procedural Guidelines for catheter insertion in PICU","李恩沛","座長：王玠能主任"],
+ ["16:15–16:40","Neuro-POCUS in PICU","林建志","座長：賴申豪主任"],
+ ["16:40–16:50","Panel Discussion","鄭玫枝","座長：鄭玫枝教授"]]);
+
+S(2,"09:00","10:20","205","co","青創研討會：重症青創 × 全程健康照護｜從 ICU 邁向全程健康照護（台灣專科護理師學會）");
+S(2,"10:50","12:10","205","co","青創研討會：重症青創 × 全程健康照護｜從 ICU 邁向全程健康照護（台灣專科護理師學會）");
+S(2,"12:20","13:20","205","lunch","Lunch Symposium 亞洲準譯");
+S(2,"13:30","14:50","205","co","青創研討會：重症青創 × 全程健康照護｜從 ICU 邁向全程健康照護（台灣專科護理師學會）");
+S(2,"15:20","16:40","205","co","青創研討會：重症青創 × 全程健康照護｜從 ICU 邁向全程健康照護（台灣專科護理師學會）");
+
+S(2,"09:00","10:20","401","apem","APEM 復健場次（ENG）","逐場講題請見 APEM 官網 Daily Program");
+S(2,"09:00","10:20","402A","other","大師課程 施維雅：Acute coronary syndrome");
+S(2,"09:00","10:20","402B","tw","Disaster preparedness and Resilience");
+S(2,"09:00","10:20","402C","ws","CLABSI Workshop（舒萬諾）");
+S(2,"09:00","10:20","402D","co","台灣靜脈暨腸道營養醫學會");
+S(2,"10:50","12:10","401","apem","APEM 復健場次（ENG）","逐場講題請見 APEM 官網 Daily Program");
+S(2,"10:50","12:10","402A","other","大師課程 阿斯特捷利康（AZ）");
+S(2,"10:50","12:10","402B","tw","Stroke and neurointensive care");
+S(2,"10:50","12:10","402C","ws","CLABSI Workshop（舒萬諾）");
+S(2,"10:50","12:10","402D","co","臺灣臨床藥學會");
+S(2,"12:20","13:20","4F","lunch","Lunch Symposium 默沙東（ENG）／日龍／鏵甡／美時","依總表欄位順序標示於 4 樓，確切會議室請以現場公告為準");
+S(2,"13:30","14:50","4F","apem","APEM 復健工作坊（ENG）／協辦學會 TAKD","英文復健工作坊 13:30–16:40 於台大國際會議中心 4 樓");
+S(2,"15:20","16:40","4F","apem","APEM 復健工作坊（ENG）","英文復健工作坊 13:30–16:40 於台大國際會議中心 4 樓");
+
+/* ---------- 邏輯 ---------- */
+var ROOMORDER=["101","102","201","202","203","205","301","401","402","402A","402B","402C","402D","4F"];
+function rank(r){var i=ROOMORDER.indexOf(r);return i<0?99:i;}
+function mm(t){var p=t.split(":");return (+p[0])*60+(+p[1]);}
+DATA.forEach(function(x,i){x.id=x.d+"|"+x.s+"|"+x.r+"|"+x.n.slice(0,24);x.sm=mm(x.s);x.em=mm(x.e);});
+DATA.sort(function(a,b){return a.d-b.d||a.sm-b.sm||rank(a.r)-rank(b.r);});
+
+var ST={day:1,type:"all",q:"",room:"all",open:false};
+var MINE={};
+try{MINE=JSON.parse(localStorage.getItem("secc2026_mine")||"{}")||{};}catch(e){MINE={};}
+function saveMine(){try{localStorage.setItem("secc2026_mine",JSON.stringify(MINE));}catch(e){}}
+
+function taipeiNow(){
+  var o={};
+  new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Taipei",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit",hour12:false})
+    .formatToParts(new Date()).forEach(function(p){o[p.type]=p.value;});
+  return {date:o.year+"-"+o.month+"-"+o.day,min:((+o.hour)%24)*60+(+o.minute)};
+}
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+function roomLabel(r){return r==="4F"?"4 樓":"Room "+r;}
+
+function matches(x){
+  if(x.d!==ST.day)return false;
+  if(ST.type==="mine"){if(!MINE[x.id])return false;}
+  else if(ST.type!=="all"&&x.t!==ST.type)return false;
+  if(ST.room!=="all"&&x.r!==ST.room)return false;
+  if(ST.q){
+    var hay=(x.n+" "+x.ch+" "+x.r+" "+TYPENAME[x.t]+" "+x.items.map(function(i){return i.join(" ");}).join(" ")).toLowerCase();
+    var terms=ST.q.toLowerCase().split(/\s+/).filter(Boolean);
+    for(var k=0;k<terms.length;k++){if(hay.indexOf(terms[k])<0)return false;}
+  }
+  return true;
+}
+
+function render(){
+  var now=taipeiNow(),live=(now.date===DATES[ST.day]);
+  var list=DATA.filter(matches),html="",lastS="";
+  list.forEach(function(x){
+    if(x.s!==lastS){html+='<div class="slot">'+x.s+'</div>';lastS=x.s;}
+    var isLive=live&&now.min>=x.sm&&now.min<x.em;
+    var star=!!MINE[x.id];
+    html+='<article class="card t-'+x.t+(isLive?" live":"")+'" data-id="'+esc(x.id)+'">'
+      +'<div class="top"><span class="time">'+x.s+'–'+x.e+'</span><span class="room">'+roomLabel(x.r)+'</span>'
+      +(isLive?'<span class="livetag">進行中</span>':'')
+      +'<button class="star'+(star?" on":"")+'" aria-label="加入我的行程" data-star="'+esc(x.id)+'">'+(star?"★":"☆")+'</button></div>'
+      +'<h3>'+esc(x.n)+'</h3><div class="tag">'+TYPENAME[x.t]+'</div>'
+      +(x.ch?'<div class="chair">'+esc(x.ch)+'</div>':'');
+    if(x.items.length){
+      html+='<details'+(ST.open?' open':'')+'><summary>講者與講題（'+x.items.length+'）</summary><ul class="items">';
+      x.items.forEach(function(i){
+        html+='<li><div class="it">'+esc(i[0])+'</div><div class="tp">'+esc(i[1])+'</div>'
+          +(i[2]?'<div class="sp">'+esc(i[2])+'</div>':'')
+          +(i[3]?'<div class="nt">'+esc(i[3])+'</div>':'')+'</li>';
+      });
+      html+='</ul></details>';
+    }
+    html+='</article>';
+  });
+  document.getElementById("list").innerHTML=html||'<div class="empty">沒有符合條件的場次</div>';
+  document.getElementById("count").textContent="共 "+list.length+" 場";
+  document.getElementById("toggleAll").textContent=ST.open?"全部收合":"全部展開";
+}
+
+function buildDays(){
+  var c1=DATA.filter(function(x){return x.d===1;}).length,c2=DATA.filter(function(x){return x.d===2;}).length;
+  var el=document.getElementById("days");
+  el.innerHTML='<button data-day="1">10/3（六）<small>'+c1+' 場</small></button><button data-day="2">10/4（日）<small>'+c2+' 場</small></button>';
+  el.querySelectorAll("button").forEach(function(b){
+    b.addEventListener("click",function(){ST.day=+b.dataset.day;ST.room="all";syncUI();render();window.scrollTo(0,0);});
+  });
+}
+function buildChips(){
+  var el=document.getElementById("chips");
+  el.innerHTML=TYPES.map(function(t){return '<button class="chip" data-t="'+t[0]+'">'+t[1]+'</button>';}).join("");
+  el.querySelectorAll(".chip").forEach(function(b){
+    b.addEventListener("click",function(){ST.type=b.dataset.t;syncUI();render();});
+  });
+}
+function buildRooms(){
+  var rooms={};
+  DATA.filter(function(x){return x.d===ST.day;}).forEach(function(x){rooms[x.r]=1;});
+  var keys=Object.keys(rooms).sort(function(a,b){return rank(a)-rank(b);});
+  var sel=document.getElementById("room");
+  sel.innerHTML='<option value="all">全部會議室</option>'+keys.map(function(r){return '<option value="'+r+'">'+roomLabel(r)+'</option>';}).join("");
+  sel.value=ST.room;
+}
+function syncUI(){
+  document.querySelectorAll("#days button").forEach(function(b){b.classList.toggle("on",+b.dataset.day===ST.day);});
+  document.querySelectorAll(".chip").forEach(function(b){b.classList.toggle("on",b.dataset.t===ST.type);});
+  buildRooms();
+}
+function banner(){
+  var n=taipeiNow(),el=document.getElementById("banner");
+  if(n.date<DATES[1]){el.innerHTML="大會將於 <b>10/3（六）</b> 開始，開幕式 09:00 於 Room 101。";el.hidden=false;}
+  else if(n.date>DATES[2]){el.textContent="大會已結束。";el.hidden=false;}
+  else{
+    var cur=DATA.filter(function(x){return x.d===(n.date===DATES[1]?1:2)&&n.min>=x.sm&&n.min<x.em;}).length;
+    el.innerHTML="現在有 <b>"+cur+"</b> 場進行中，點「跳到現在」查看。";el.hidden=false;
+  }
+}
+
+document.addEventListener("click",function(e){
+  var s=e.target.closest&&e.target.closest("[data-star]");
+  if(!s)return;
+  var id=s.getAttribute("data-star");
+  if(MINE[id])delete MINE[id];else MINE[id]=1;
+  saveMine();
+  if(ST.type==="mine")render();
+  else{s.classList.toggle("on",!!MINE[id]);s.textContent=MINE[id]?"★":"☆";}
+});
+document.getElementById("q").addEventListener("input",function(e){ST.q=e.target.value.trim();render();});
+document.getElementById("room").addEventListener("change",function(e){ST.room=e.target.value;render();});
+document.getElementById("toggleAll").addEventListener("click",function(){ST.open=!ST.open;render();});
+document.getElementById("goNow").addEventListener("click",function(){
+  var n=taipeiNow(),d=n.date===DATES[2]?2:1;
+  if(ST.day!==d){ST.day=d;ST.room="all";}
+  ST.type="all";ST.q="";document.getElementById("q").value="";
+  syncUI();render();
+  var t=document.querySelector(".card.live");
+  if(!t){
+    var cur=n.date===DATES[d]?n.min:0,best=null;
+    document.querySelectorAll(".slot").forEach(function(s){if(!best&&mm(s.textContent)>=cur)best=s;});
+    t=best;
+  }
+  if(t)t.scrollIntoView({behavior:"smooth",block:"center"});
+});
+
+(function init(){
+  var n=taipeiNow();if(n.date===DATES[2])ST.day=2;
+  buildDays();buildChips();syncUI();banner();render();
+})();
+</script>
+</body>
+</html>
+
+</body></html>
